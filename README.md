@@ -23,6 +23,13 @@ caption generation
 - pandas
 - pydot
 - graphviz
+
+#for extention
 - pytorch 
 - flax
 - huggingface transformers
+
+- opencv
+- pytorch 
+- albumentations
+- configs

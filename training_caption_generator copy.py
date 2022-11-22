@@ -19,21 +19,6 @@ from tqdm import tqdm_notebook as tqdm
 # tqdm().pandas()
 
 
-import os
-import cv2
-import gc
-import numpy as np
-import pandas as pd
-import itertools
-from tqdm.autonotebook import tqdm
-import albumentations as A
-
-import torch
-from torch import nn
-import torch.nn.functional as F
-import timm
-from transformers import DistilBertModel, DistilBertConfig, DistilBertTokenizer
-
 # Loading a text file into memory
 def load_doc(filename):
     # Opening the file as read only
@@ -149,6 +134,8 @@ def extract_features(directory):
         image = image - 1.0
         
         feature = model.predict(image)
+        print(feature)
+        assert(True == False)
         features[img] = feature
     return features
 

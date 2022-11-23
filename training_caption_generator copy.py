@@ -121,8 +121,13 @@ print("Length of vocabulary = ", len(vocabulary))
 #saving each description to file 
 save_descriptions(clean_descriptions, "descriptions.txt")
 
+from tensorflow.keras.applications import ResNet50
+
+if os.path.isfile(dataset_images+"/.DS_Store"):
+        os.remove(dataset_images+"/.DS_Store")
+
 def extract_features(directory):
-    model = Xception( include_top=False, pooling='avg' )
+    model = Xception( include_top=False, pooling='avg' )#ResNet50(weights="imagenet", pooling='avg', include_top=False)
     features = {}
     for img in tqdm(os.listdir(directory)):
         filename = directory + "/" + img
@@ -130,12 +135,15 @@ def extract_features(directory):
         image = image.resize((299,299))
         image = np.expand_dims(image, axis=0)
         #image = preprocess_input(image)
+        #[[0.00793536 0.         0.03073434 ... 2.6678817  0.06411672 0.13986424]]
+        #[[0.00341753 0.24041176 0.08493486 ... 0.005672   0.         0.        ]]
         image = image/127.5
         image = image - 1.0
         
         feature = model.predict(image)
         print(feature)
-        assert(True == False)
+        #print(np.shape(feature))#(1, 10, 10, 2048)
+        #assert(True == False)
         features[img] = feature
     return features
 
@@ -177,6 +185,7 @@ def load_clean_descriptions(filename, photos):
 def load_features(photos):
     #loading all features
     all_features = load(open("features.p","rb"))
+    print("HERE")
     #selecting only needed features
     features = {k:all_features[k] for k in photos}
     return features

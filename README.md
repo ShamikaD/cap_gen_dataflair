@@ -1,13 +1,13 @@
 # cap_gen_dataflair
 caption generation
+# See written report on model building, architecture, and performance here:
+# Python3 code for caption generation using Keras Xception for feature extraction
 
-#Python3 code for caption generation using Keras Xception for feature extraction
+# documentation for xception: https://keras.io/api/applications/xception/
 
-#documentation for xception: https://keras.io/api/applications/xception/
+# dataset: flickr8k, taken from https://github.com/jbrownlee/Datasets/releases/
 
-#dataset: flickr8k, taken from https://github.com/jbrownlee/Datasets/releases/
-
-#Requirements
+# Requirements
 
 - python 3.7+ (I am using python 3.9.12)
 - h5py

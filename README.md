@@ -1,6 +1,8 @@
 # cap_gen_dataflair
 caption generation
-# See written report on model building, architecture, and performance here:
+
+See written report on model building, architecture, and performance here: https://github.com/ShamikaD/cap_gen_dataflair/blob/fd16ca62ea085877241fb720d84eed47029d2737/Report.pdf
+
 # Python3 code for caption generation using Keras Xception for feature extraction
 
 # documentation for xception: https://keras.io/api/applications/xception/
